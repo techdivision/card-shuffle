@@ -1,0 +1,53 @@
+prototype(TechDivision.Card.Decks:SelectedNodes) {
+
+    filterArea = Neos.Fusion:Component {
+        taxonomyIdentifiersFromCardsInDeck = Neos.Fusion:Map {
+            items = ${q(node).property('selectedNodes') ? q(node).property('selectedNodes') : []}
+            itemName = 'node'
+            itemRenderer = Neos.Fusion:Component {
+                selectedTags = Neos.Fusion:Map {
+                    items = ${q(node).property('taxonomyReferences')}
+                    itemName = 'tag'
+                    itemRenderer = ${tag.identifier}
+                }
+                renderer = afx`
+                    {props.selectedTags}
+                `
+            }
+        }
+
+        renderer = afx`
+            <TechDivision.Card.Shuffle:Integration.DeckShuffle
+                cardFilterRequestArguments={request.arguments.cardFilter}
+                taxonomyIdentifiersFromCardsInDeck={props.taxonomyIdentifiersFromCardsInDeck}
+            />
+        `
+
+        @position = 'before cardArea'
+
+        @if.filterIsVisible = ${q(node).property('filterIsVisible')}
+    }
+
+    cardArea.targetRenderer {
+
+        cards = ${q(node).property('selectedNodes') ? q(node).property('selectedNodes') : []}
+
+        removeCardsWithNoTaxonomyReference = ${q(node).property('removeCardsWithNoTaxonomyReference')}
+
+        items >
+        items = ${CardShuffle.Card.getFilteredCards(this.cards , request.arguments.cardFilter, this.removeCardsWithNoTaxonomyReference)}
+
+        prototype(TechDivision.Card:Augmenter.CardLayoutAugmenter) {
+            data-tags = Neos.Fusion:Loop {
+                items = ${q(node).property('taxonomyReferences')}
+                itemName = 'tag'
+                itemRenderer = ${tag.identifier}
+                @glue = ' '
+            }
+        }
+    }
+
+    @cache {
+        entryTags.taxonomies = ${Neos.Caching.descendantOfTag(q(Taxonomy.root()))}
+    }
+}

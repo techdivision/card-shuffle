@@ -1,0 +1,60 @@
+prototype(TechDivision.Card.Decks:NodeTypes) {
+    @context.nodeTypes = ${q(node).property('nodeTypes') ? q(node).property('nodeTypes') : []}
+
+    filterArea = Neos.Fusion:Component {
+
+        taxonomyIdentifiersFromCardsInDeck = Neos.Fusion:Map {
+            items = ${q(site).find(Array.join(Array.map(nodeTypes, x => '[instanceof ' + x + ']'), ',')).get()}
+            itemName = 'node'
+            itemRenderer = Neos.Fusion:Component {
+                selectedTags = Neos.Fusion:Map {
+                    items = ${q(node).property('taxonomyReferences')}
+                    itemName = 'tag'
+                    itemRenderer = ${tag.identifier}
+                }
+                renderer = afx`
+                    {props.selectedTags}
+                `
+            }
+        }
+
+        renderer = afx`
+            <TechDivision.Card.Shuffle:Integration.DeckShuffle
+                cardFilterRequestArguments={request.arguments.cardFilter}
+                taxonomyIdentifiersFromCardsInDeck={props.taxonomyIdentifiersFromCardsInDeck}
+            />
+        `
+        @cache {
+            entryTags {
+                taxonomies = ${Neos.Caching.descendantOfTag(q(Taxonomy.root()))}
+            }
+        }
+
+        @position = 'before cardArea'
+
+        @if.filterIsVisible = ${q(node).property('filterIsVisible')}
+    }
+
+    cardArea.teaserRendering {
+
+        cards = ${q(site).find(Array.join(Array.map(nodeTypes, x => '[instanceof ' + x + ']'), ',')).get()}
+
+        removeCardsWithNoTaxonomyReference = ${q(node).property('removeCardsWithNoTaxonomyReference')}
+
+        items >
+        items = ${CardShuffle.Card.getFilteredCards(this.cards , request.arguments.cardFilter, this.removeCardsWithNoTaxonomyReference)}
+
+        prototype(TechDivision.Card:Augmenter.CardLayoutAugmenter) {
+            data-tags = Neos.Fusion:Loop {
+                items = ${q(node).property('taxonomyReferences')}
+                itemName = 'tag'
+                itemRenderer = ${tag.identifier}
+                @glue = ' '
+            }
+        }
+    }
+
+    @cache {
+        entryTags.taxonomies = ${Neos.Caching.descendantOfTag(q(Taxonomy.root()))}
+    }
+}

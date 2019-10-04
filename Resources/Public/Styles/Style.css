@@ -1,0 +1,12 @@
+.shuffle--container {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(4, calc(300px - 30px));
+  padding-left: 15px;
+  position: relative;
+}
+.shuffle--container ul {
+  list-style-type: none;
+}
+
+/*# sourceMappingURL=Style.css.map */

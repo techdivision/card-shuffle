@@ -1,0 +1,15 @@
+Neos:
+  Neos:
+    userInterface:
+      translation:
+        autoInclude:
+          TechDivision.Card.Shuffle:
+            - 'NodeTypes/*'
+    fusion:
+      autoInclude:
+        TechDivision.Card.Shuffle: true
+  Fusion:
+    defaultContext:
+      'CardShuffle.Filter': 'TechDivision\Card\Shuffle\Eel\FilterHelper'
+      'CardShuffle.Checkbox': 'TechDivision\Card\Shuffle\Eel\CheckboxHelper'
+      'CardShuffle.Card': 'TechDivision\Card\Shuffle\Eel\CardHelper'

@@ -1,0 +1,29 @@
+'TechDivision.Card.Decks:DeckMixin':
+  ui:
+    inspector:
+      groups:
+        filter:
+          label: 'TechDivision.Card.Shuffle:NodeTypes.DeckMixin:groups.filter'
+          position: 5
+          tab: 'layout'
+  properties:
+    filterIsVisible:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: 'TechDivision.Card.Shuffle:NodeTypes.DeckMixin:properties.filterIsVisible'
+        reloadPageIfChanged: true
+        inspector:
+          group: 'filter'
+          position: 1
+    removeCardsWithNoTaxonomyReference:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: 'TechDivision.Card.Shuffle:NodeTypes.DeckMixin:properties.removeCardsWithNoTaxonomyReference'
+        help:
+          message: 'TechDivision.Card.Shuffle:NodeTypes.DeckMixin:properties.removeCardsWithNoTaxonomyReference.ui.help.message'
+        reloadPageIfChanged: true
+        inspector:
+          group: 'filter'
+          position: 2

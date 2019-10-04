@@ -1,0 +1,32 @@
+prototype(TechDivision.Card.Shuffle:Integration.DeckShuffle) < prototype(Neos.Fusion:Component) {
+
+    //api
+    taxonomyIdentifiersFromCardsInDeck = ''
+    cardFilterRequestArguments = ''
+
+    allTaxonomies = Neos.Fusion:Value {
+        value = TechDivision.Card.Shuffle:Helper.AllTaxonomies
+    }
+    availableFilters = ${CardShuffle.Filter.getAvailableFilters(this.allTaxonomies, this.taxonomyIdentifiersFromCardsInDeck)}
+    filterCards = ${Translation.translate('TechDivision.Card.Shuffle:Main:card.shuffle.filterCards')}
+
+    renderer = afx`
+        <TechDivision.Card.Shuffle:DeckShuffleAugmenter>
+            <form method="get" class="shuffle--container">
+                <Neos.Fusion:Loop items={props.availableFilters} itemName="filterGroup">
+                    <div>
+                        <h5>{filterGroup.label}</h5>
+                        <ul>
+                            <Neos.Fusion:Loop items={filterGroup.taxonomies} itemName="taxonomy">
+                                <li>
+                                    <TechDivision.Card.Shuffle:Atom.FilterItem filter={taxonomy} filterGroup={filterGroup} cardFilterRequestArguments={props.cardFilterRequestArguments} />
+                                </li>
+                            </Neos.Fusion:Loop>
+                        </ul>
+                    </div>
+                </Neos.Fusion:Loop>
+                <button type="submit">{props.filterCards}</button>
+            </form>
+        </TechDivision.Card.Shuffle:DeckShuffleAugmenter>
+    `
+}

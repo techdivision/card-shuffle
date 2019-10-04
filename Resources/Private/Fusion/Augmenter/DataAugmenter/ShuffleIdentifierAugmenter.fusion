@@ -1,0 +1,4 @@
+prototype(TechDivision.Card.Shuffle:ShuffleIdentifierAugmenter) < prototype(Neos.Fusion:Augmenter) {
+    //api
+    class = ''
+}

@@ -1,0 +1,3 @@
+prototype(Neos.Fusion:GlobalCacheIdentifiers) {
+    cardFilterRequestArguments = ${request.arguments.cardFilter ? Array.join(Array.map(request.arguments.cardFilter, x => Array.join(x, "-")), "-") : ""}
+}

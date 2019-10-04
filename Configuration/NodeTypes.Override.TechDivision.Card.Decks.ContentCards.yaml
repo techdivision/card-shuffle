@@ -1,0 +1,5 @@
+'TechDivision.Card.Decks:ContentCards':
+  properties:
+    filterIsVisible: []
+    keepCardsWithNoTaxonomyReference: []
+    removeCardsWithNoTaxonomyReference: []

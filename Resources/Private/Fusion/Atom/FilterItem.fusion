@@ -1,0 +1,18 @@
+prototype(TechDivision.Card.Shuffle:Atom.FilterItem) < prototype(Neos.Fusion:Component) {
+
+    //api
+    filter = ''
+    filterGroup = ''
+    cardFilterRequestArguments = ''
+
+    renderer = afx`
+        <input type="checkbox" 
+            checked={CardShuffle.Checkbox.isActive(props.filter.identifier,props.cardFilterRequestArguments)} 
+            name={'cardFilter[' + props.filterGroup.identifier + '][]'} 
+            value={props.filter.identifier} 
+            id={props.filter.identifier} 
+        />
+        <label for={props.filter.identifier}>{props.filter.label}</label>
+    `
+}
+

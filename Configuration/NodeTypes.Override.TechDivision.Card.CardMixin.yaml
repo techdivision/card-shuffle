@@ -1,0 +1,10 @@
+'TechDivision.Card:CardMixin':
+  superTypes:
+    'Sitegeist.Taxonomy:Mixin.Referencable': true
+  ui:
+    inspector:
+      groups:
+        taxonomy:
+          tab: 'card'
+          position: 'end'
+

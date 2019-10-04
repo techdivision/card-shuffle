@@ -1,0 +1,23 @@
+{
+  "description": "TechDivision.Card.Shuffle",
+  "type": "neos-package",
+  "name": "techdivision/card-shuffle",
+  "license": [
+    "GPL-3.0-or-later"
+  ],
+  "keywords": ["card", "teaser", "neos", "nodetypes", "filter", "tags", "taxonomy"],
+  "require": {
+    "techdivision/card-decks" : "^1.0.0",
+    "sitegeist/taxonomy" : "^1.0"
+  },
+  "extra": {
+    "neos": {
+      "package-key": "TechDivision.Card.Shuffle"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "TechDivision\\Card\\Shuffle\\": "Classes/"
+    }
+  }
+}

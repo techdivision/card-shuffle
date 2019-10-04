@@ -1,0 +1,21 @@
+prototype(TechDivision.Card.Shuffle:Helper.AllTaxonomies) >
+prototype(TechDivision.Card.Shuffle:Helper.AllTaxonomies) < prototype(Neos.Fusion:Map) {
+    @context.taxonomyRoot = ${q(Taxonomy.root())}
+    items = ${q(taxonomyRoot).children('[instanceof Sitegeist.Taxonomy:Vocabulary]').get()}
+    itemName = 'vocabulary'
+    itemRenderer = Neos.Fusion:DataStructure {
+        label = ${q(vocabulary).property('title')}
+        identifier = ${vocabulary.identifier}
+        hash = ${'vocabulary-'+(String.substr(String.md5(String.trim(vocabulary.identifier)), 0, 10))}
+        taxonomies = Neos.Fusion:Map {
+            items = ${q(vocabulary).children('[instanceof Sitegeist.Taxonomy:Taxonomy]').get()}
+            itemName = 'taxonomy'
+            itemRenderer = Neos.Fusion:DataStructure {
+                label = ${q(taxonomy).property('title')}
+                identifier = ${taxonomy.identifier}
+                hash = ${'tag-'+(String.substr(String.md5(String.trim(taxonomy.identifier)), 0, 10))}
+            }
+        }
+    }
+}
+

@@ -1,0 +1,3 @@
+'TechDivision.Card:SocialCard':
+  superTypes:
+    'Sitegeist.Taxonomy:Mixin.Referencable': false

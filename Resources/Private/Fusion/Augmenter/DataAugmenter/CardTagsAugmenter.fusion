@@ -1,0 +1,4 @@
+prototype(TechDivision.Card.Shuffle:CardTagsAugmenter) < prototype(Neos.Fusion:Augmenter) {
+    //api
+    data-tags = ''
+}

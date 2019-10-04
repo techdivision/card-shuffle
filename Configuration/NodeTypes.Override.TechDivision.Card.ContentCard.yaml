@@ -1,0 +1,3 @@
+'TechDivision.Card:ContentCard':
+  superTypes:
+    'Sitegeist.Taxonomy:Mixin.Referencable': false

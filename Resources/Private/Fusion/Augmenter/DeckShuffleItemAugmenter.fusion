@@ -1,0 +1,1 @@
+prototype(TechDivision.Card.Shuffle:DeckShuffleItemAugmenter) < prototype(Neos.Fusion:Augmenter)

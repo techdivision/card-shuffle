@@ -1,0 +1,7 @@
+prototype(Neos.Neos:Page) {
+    head.stylesheets.shuffle = TechDivision.Card.Shuffle:Atom.Stylesheet {
+        stylesheet = Neos.Fusion:ResourceUri {
+            path = 'resource://TechDivision.Card.Shuffle/Public/Styles/Style.css'
+        }
+    }
+}

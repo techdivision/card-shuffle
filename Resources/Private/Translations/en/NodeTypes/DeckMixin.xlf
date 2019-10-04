@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="TechDivision.Card.Shuffle" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="properties.filterIsVisible" xml:space="preserve">
+                <source>Show filter</source>
+            </trans-unit>
+            <trans-unit id="groups.filter" xml:space="preserve">
+                <source>Filter</source>
+            </trans-unit>
+            <trans-unit id="properties.removeCardsWithNoTaxonomyReference" xml:space="preserve">
+                <source>Remove untagged cards when filtering</source>
+            </trans-unit>
+            <trans-unit id="properties.removeCardsWithNoTaxonomyReference.ui.help.message" xml:space="preserve">
+                <target xml:lang="de">When filtering cards, untagged cards may either be displayed (default) or hidden when no filter matches.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
