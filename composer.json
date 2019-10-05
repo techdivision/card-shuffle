@@ -1,7 +1,7 @@
 {
-  "description": "TechDivision.Card.Shuffle",
   "type": "neos-package",
   "name": "techdivision/card-shuffle",
+  "description": "Card.Shuffle extends Card.Deck functionality and adds filtering options, based on Sitegeist.Taxonomy package. With shuffle you can add tags to your cards and display filter options in the frontend.",
   "license": [
     "GPL-3.0-or-later"
   ],
