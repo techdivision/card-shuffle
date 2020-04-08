@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-    <file original="" product-name="TechDivision.Card.Shuffle" source-language="de" datatype="plaintext">
+    <file original="" product-name="TechDivision.Card.Shuffle" source-language="de" target-language="de" datatype="plaintext">
         <body>
             <trans-unit id="card.shuffle.filterCards">
                 <target xml:lang="en">Filter setzen</target>
